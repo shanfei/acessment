@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Learn AngularJS - Instant Search</title>
+
+		<link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
+
+		<!-- The main CSS file -->
+		<link href="style.css" rel="stylesheet" />
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<!-- Initialize a new AngularJS app and associate it with a module named "instantSearch"-->
+	<body ng-app="instantSearch" ng-controller="InstantSearchController">
+
+		<div class="bar">
+			<!-- Create a binding between the searchString model and the text field -->
+			<input type="text" ng-model="searchString"  placeholder="Enter your search terms" />
+
+		</div>
+		<br/>
+		<div>
+			<span>search From Date<input type="text" ng-model="searchFromDate"></span>
+			<span>search End Date<input type="text" ng-model="searchEndDate"></span>
+			<span><button ng-click="search()"> search </button></span>
+		</div>
+
+		<br/>
+		<h3>Create Employee</h3>
+		<hr/>
+		<br/>
+		<div>
+			<span>name: <input type="text" ng-model="name"></span>
+			<span>job title: <input type="text" ng-model="title"></span>
+			<span>age: <input type="text" ng-model="age"></span>
+			<span>startFrom:<input type="text" ng-model="fromDate"></span>
+			<span>endAt:<input type="text" ng-model="endDate"></span>
+			<span><button ng-click="addEmployee()">Add</button></span>
+		</div>
+
+		<br/>
+		<h3>Employee List</h3>
+		<hr/>
+        <table width="100%">
+			<tr>
+				<td>name</td><td>job title</td><td>age</td><td>startFrom</td><td>endAt</td>
+			</tr>
+			<tr ng-repeat="i in items ">
+				<td>{{ i.name }} </td>
+				<td>{{ i.title }}</td>
+				<td>{{ i.age }} </td>
+				<td>{{ i.startFrom }}</td>
+				<td>{{ i.endAt }}</td>
+			</tr>
+		</table>
+
+		<!-- Include AngularJS from Google's CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
